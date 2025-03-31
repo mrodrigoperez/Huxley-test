@@ -19,7 +19,7 @@ module "vnet" {
   address_space       = ["10.0.0.0/16"]
   tags = {
     environment = "dev"
-    project     = "opella-challenge"
+    project     = "huxley-test"
   }
   subnets = {
     subnet1 = {
@@ -29,7 +29,7 @@ module "vnet" {
   }
 }
 
-# Recurso adicional: Cuenta de almacenamiento
+# Additional resource: Storage Account
 resource "random_string" "suffix" {
   length  = 4
   special = false
@@ -44,6 +44,6 @@ resource "azurerm_storage_account" "dev_storage" {
   account_replication_type = "LRS"
   tags = {
     environment = "dev"
-    region      = "eastus"
+    region      = "euwest"
   }
 }

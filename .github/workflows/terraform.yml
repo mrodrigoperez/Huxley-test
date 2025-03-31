@@ -1,0 +1,36 @@
+name: 'Terraform Huxley CI/CD'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
+
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: environments/dev
+
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: environments/dev
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+        working-directory: environments/dev
