@@ -6,14 +6,18 @@ resource "azurerm_virtual_network" "this" {
   tags                = var.tags
 }
 
-# Optional: We can create subnets if it's necessary, for example subnet only for the database and delegate the database
 resource "azurerm_subnet" "this" {
-  for_each = var.subnets
+  for_each             = var.subnets
   name                 = each.key
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = each.value.address_prefixes
+}
 
-  # A good and time-saving practice is to use a Network Security Group if provided
-  network_security_group_id = each.value.nsg_id != "" ? each.value.nsg_id : null
+# Optional: Associate NSG if an NSG ID is provided
+resource "azurerm_subnet_network_security_group_association" "this" {
+  for_each = { for key, subnet in var.subnets : key => subnet if subnet.nsg_id != "" }
+  
+  subnet_id                 = azurerm_subnet.this[each.key].id
+  network_security_group_id = each.value.nsg_id
 }
