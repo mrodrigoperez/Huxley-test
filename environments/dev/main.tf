@@ -1,9 +1,9 @@
 resource "azurerm_resource_group" "dev" {
-  name     = "rg-dev-eastus"
-  location = "eastus"
+  name     = "rg-dev-euwest"
+  location = "euwest"
   tags = {
     environment = "dev"
-    region      = "eastus"
+    region      = "euwest"
   }
 }
 
