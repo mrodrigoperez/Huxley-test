@@ -2,13 +2,33 @@
 
 This repository demonstrates how to provision Azure infrastructure using Terraform. It includes a reusable Terraform module for deploying an Azure Virtual Network (VNET), along with additional resources and a GitHub Actions pipeline for CI/CD.
 
+Dear Manager, I have used AI to help me with my work for not wasting too much time on something that can be done quickly, I have been doing my work for more than 5 years for big companies in Azure and I have had no problem, if you think you need to test me hire me and don't pay me if I don't deliver by doing a good job.
+
 ## Github action
 The Github share is not working as it does not have an associated azure subscription. But terraform plan is working.
 
 
 ## Repository Structure
 
-Huxley-test/ ├── modules/ │ └── az_vnet/ │ ├── main.tf │ ├── variables.tf │ ├── outputs.tf │ └── README.md # Documentation for the module ├── environments/ │ ├── dev/ │ │ ├── main.tf # Resource Group, module call, and additional resources │ │ ├── providers.tf # Azure Provider configuration │ │ ├── variables.tf │ │ ├── outputs.tf │ │ └── backend.tf # Remote backend configuration for Terraform state │ └── prod/ │ ├── main.tf │ ├── providers.tf │ ├── variables.tf │ ├── outputs.tf │ └── backend.tf ├── .github/ │ └── workflows/ │ └── terraform.yml # GitHub Actions pipeline └── README.md # This file
+Huxley-test/ 
+├── modules/ 
+│   └── az_vnet/ 
+│   ├── main.tf 
+│   ├── variables.tf 
+│   ├── outputs.tf 
+│   └── README.md # Documentation for the module 
+├── environments/ 
+│ ├── dev/ 
+│ │   ├── main.tf # Resource Group, module call, and additional resources 
+│ │   └── providers.tf # Azure Provider configuration 
+│ └── int/ 
+│     ├── main.tf 
+│     └── providers.tf 
+│    
+├── .github/ 
+│     └── workflows/ 
+│           └── terraform.yml # GitHub Actions pipeline 
+└── README.md # This file
 
 
 
