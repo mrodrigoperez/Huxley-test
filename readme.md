@@ -8,27 +8,25 @@ Dear Manager, I have used AI to help me with my work for not wasting too much ti
 The Github share is not working as it does not have an associated azure subscription. But terraform plan is working.
 
 
-## Repository Structure
-
-Huxley-test/ 
-├── modules/ 
-│   └── az_vnet/ 
-│   ├── main.tf 
-│   ├── variables.tf 
-│   ├── outputs.tf 
-│   └── README.md # Documentation for the module 
-├── environments/ 
-│ ├── dev/ 
-│ │   ├── main.tf # Resource Group, module call, and additional resources 
-│ │   └── providers.tf # Azure Provider configuration 
-│ └── int/ 
-│     ├── main.tf 
-│     └── providers.tf 
-│    
-├── .github/ 
-│     └── workflows/ 
-│           └── terraform.yml # GitHub Actions pipeline 
-└── README.md # This file
+    .Huxley-test/ 
+    ├── modules/ 
+    │   └── az_vnet/ 
+    │   ├── main.tf 
+    │   ├── variables.tf 
+    │   ├── outputs.tf 
+    │   └── README.md # Documentation for the module 
+    ├── environments/ 
+    │ ├── dev/ 
+    │ │   ├── main.tf # Resource Group, module call, and additional resources 
+    │ │   └── providers.tf # Azure Provider configuration 
+    │ └── int/ 
+    │     ├── main.tf 
+    │     └── providers.tf 
+    │    
+    ├── .github/ 
+    │     └── workflows/ 
+    │           └── terraform.yml # GitHub Actions pipeline 
+    └── README.md # This file ...
 
 
 
